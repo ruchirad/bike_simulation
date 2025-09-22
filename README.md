@@ -33,7 +33,7 @@ The diagram below depicts the logical flow of the program w.r.t the commands rec
 This is a sequence diagram of the implementation.
 ![Bike simulation process](src/main/resources/BikeSimulation_process.jpg)
 
-##How to run?
+## How to run?
 * Compile the project
 ```
 javac -d target/classes -sourcepath src/main/java $(find src/main/java -name "*.java")
