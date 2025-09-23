@@ -33,24 +33,48 @@ The diagram below depicts the logical flow of the program w.r.t the commands rec
 This is a sequence diagram of the implementation.
 ![Bike simulation process](src/main/resources/BikeSimulation_process.jpg)
 
-## How to run?
-* Compile the project
+## Design and approach
+Can be found here [here](src/main/resources/BikeSimulator_designApproach.pdf)
+
+## How to run the application
+_This project requires Java 17 to compile and run. <br>
+Please make sure that Java 17 (JDK 17) is installed and properly configured in your system's environment variables (e.g., JAVA_HOME)._
+
+* **Checkout** the project
+```
+git clone git@github.com:ruchirad/bike_simulation.git
+```
+
+* **Compile** the project
 ```
 javac -d target/classes -sourcepath src/main/java $(find src/main/java -name "*.java")
 ```
 
-* Run the project
+* **Run** the project
 ```
 java -cp target/classes com.bgl.bikesimulator.BikeSimulatorApplication
 ```
 
-* Run with debug mode (debug=<i>true</i> | <i>false</i>)
+* Run with **debug** mode (debug=<i>true</i> | <i>false</i>)
 ```
 java -Dbikesimulator.debug=true -cp target/classes com.bgl.bikesimulator.BikeSimulatorApplication
 ```
 
-* Run commands through a file
+* Run commands through a **file**
 ```
 java -cp target/classes com.bgl.bikesimulator.BikeSimulatorApplication src/test/java/resources/sample.txt
 ```
 
+## How to run the test classes
+* Compile test classes
+```
+javac -cp "target/classes:lib/*" -d target/test -sourcepath src/test/java $(find src/test/java -name "*.java")
+```
+* Run all tests
+```
+java -cp "target/classes:target/test:lib/*" org.junit.platform.console.ConsoleLauncher --scan-classpath
+```
+* Run specific test class
+```
+java -cp "target/classes:target/test:lib/*" org.junit.platform.console.ConsoleLauncher --select-class com.bgl.bikesimulator.service.BikeSimulatorServiceTest
+```
